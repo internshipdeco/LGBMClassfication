@@ -5,7 +5,6 @@ Created on Wed Nov  3 12:40:44 2021
 @author: SHRIKRISHNA
 """
 
-
 import numpy as np
 from flask import Flask, request, jsonify, render_template
 import pickle
@@ -24,13 +23,10 @@ def home():
     with open('result.json', 'r') as myfile:
         data = myfile.read()
     jsondata = json.loads(data)
-
-    
+  
     return render_template("index.html", result = jsondata, tables=[df.head(50).to_html(classes='data',  index= False)], titles=df.columns.values)
     #return 'Hello World'
  
-
-
 
 if __name__ == "__main__":
     app.run(debug=True)
