@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="showresult">
+	<h1>Shipment Performance Predection</h1>
+	 
+    <div class=page style="overflow:scroll; height:400px;">
+	  {% for table in tables %}
+		{{ table|safe }}
+	  {% endfor %}
+	</div>
+	<h1> Accuracy of LGBM model on given data set </h1>
+	
+	<div>
+	{% for key, value in result.items() %}
+		<h4>{{ key }} -> {{ value|round(2) }}<br></h4>
+	{% endfor %}
+	</div>
+ </div>
+
+
+</body>
+</html>
